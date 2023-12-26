@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production gulp build",
     "start": "cross-env NODE_ENV=development gulp",
     "clean": "cross-env NODE_ENV=development gulp clean",
-    "copy": "cpx \"./assets/static/**/*.*\" root/wp-content/themes/wp/assets/",
+    "copy": "cpx \"./assets/static/**/*.*\" public/wp-content/themes/wp/assets/",
     "prettier": "prettier --write ."
   },
   "browserslist": [

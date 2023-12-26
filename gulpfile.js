@@ -26,11 +26,11 @@ const settings = config.settings;
 // const env = require('node-env-file');
 // env('.env');
 
-const root = './root' + settings.root;
+const public = './public' + settings.public;
 // const isProduction = process.env.NODE_ENV === "production";
 
 // ファイルパス：コンパイル前
-const srcPHPFiles = root + '**/*.php';
+const srcPHPFiles = public + '**/*.php';
 const srcScssFiles = './assets/scss/**/*.scss';
 const srcTsFiles = './assets/ts/**/*.ts';
 const srcJsFiles = './assets/js/**/*.js';
@@ -39,18 +39,18 @@ const srcImgFileType = '{jpg,jpeg,png,gif,svg,ico,pdf}';
 
 
 // ファイルパス：コンパイル後
-const destFiles = root + 'assets/**/*';
-const destCssDir = root + 'assets/css';
-const destCssFiles = root + 'assets/css/**/*.css';
-const destJsDir = root + 'assets/js';
-const destJSFiles = root + 'assets/js/**/*.js';
-const destImtDir = root + 'assets/images';
-const destImgFiles = root + 'assets/images/**/*';
+const destFiles = public + 'assets/**/*';
+const destCssDir = public + 'assets/css';
+const destCssFiles = public + 'assets/css/**/*.css';
+const destJsDir = public + 'assets/js';
+const destJSFiles = public + 'assets/js/**/*.js';
+const destImtDir = public + 'assets/images';
+const destImgFiles = public + 'assets/images/**/*';
 
 
 // scssのパス
 try{
-  fs.writeFileSync("assets/scss/settings/_path.scss", `$path: '${settings.root}assets/';`);
+  fs.writeFileSync("assets/scss/settings/_path.scss", `$path: '${settings.public}assets/';`);
 }
 catch(e){
   console.log(e.message);
@@ -131,7 +131,7 @@ const minifyImage = (done) => {
   done();
 };
 
-// root/wp-content/themes/wp/assets配下の削除
+// public/wp-content/themes/wp/assets配下の削除
 const clean = (done) => {
   del([destFiles]);
   done();

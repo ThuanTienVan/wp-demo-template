@@ -14,7 +14,7 @@ npm run start
 ```
 npm run build
 ```
-/root/wp-content/themes/wp/assets/が出力先のフォルダです。(config/index.jsで変更可能)
+/public/wp-content/themes/wp/assets/が出力先のフォルダです。(config/index.jsで変更可能)
 
 ## volta
 package.jsonでnode,npmバージョンを管理する目的で導入。
@@ -40,8 +40,8 @@ https://v2.tailwindcss.com/docs/just-in-time-mode
 ```
 ## パスについて
 ### scss
-* 開発時、本番時ともに「$path: $path: '${settings.root}assets/'」
-でgulpから変数を渡しています。(settings.rootはconfig/index.js記載)
+* 開発時、本番時ともに「$path: $path: '${settings.public}assets/'」
+でgulpから変数を渡しています。(settings.publicはconfig/index.js記載)
 
 **使用例**
 ```
@@ -51,14 +51,14 @@ https://v2.tailwindcss.com/docs/just-in-time-mode
 ```
 相対パスを使いたい場合は、settings/_variable.scssに$pathを用意してv.$pathとして読みんでも大丈夫です。
 
-**本番アップのディレクトリが「/lp/」のときは、configで「root: '/lp/wp-content/themes/wp/'」にする**
+**本番アップのディレクトリが「/lp/」のときは、configで「public: '/lp/wp-content/themes/wp/'」にする**
 
 ## /assets/static
 ここには、フォント等のコンパイル対象外のソースを格納します。
 ```
 npm run copy
 ```
-上記コマンドで「/assets/static」配下のファイルを「/root/wp-content/themes/wp/assets」配下にコピーします。
+上記コマンドで「/assets/static」配下のファイルを「/public/wp-content/themes/wp/assets」配下にコピーします。
 
 ## Prettier
 コードを整形する目的でPrettierを導入しています。

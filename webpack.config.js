@@ -3,7 +3,7 @@ const glob = require("glob")
 const config = require("./config")
 const settings = config.settings
 
-const root = settings.root;
+const public = settings.public;
 
 const isProduction = process.env.NODE_ENV == 'production'
 const entries = {}

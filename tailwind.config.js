@@ -1,11 +1,11 @@
 const config = require("./config");
 const settings = config.settings;
-const root = settings.root;
+const public = settings.public;
 
 
 module.exports = {
   mode: "jit",
-  purge: ['./root' + root + '**/*.php'],
+  purge: ['./public' + public + '**/*.php'],
   darkMode: false,
   theme: {
     extend: {},
